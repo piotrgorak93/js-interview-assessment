@@ -9,8 +9,8 @@ type CurrencyProps = {
   onCurrencyChange: (selectedCurrency: CurrencyDTO['short_code']) => void
   onAmountChange: (amount: number | null) => void
   amount: number
-  min?: number
   disabled: boolean
+  min?: number
 }
 export const Currency = ({
   currencyList,
@@ -18,8 +18,8 @@ export const Currency = ({
   onCurrencyChange,
   onAmountChange,
   amount,
-  min,
   disabled,
+  min,
 }: CurrencyProps) => (
   <Row gutter={16}>
     <Col span={12}>
