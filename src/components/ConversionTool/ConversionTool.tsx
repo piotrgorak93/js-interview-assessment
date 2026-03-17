@@ -6,6 +6,7 @@ import { useConvert } from './useConvert/useConvert.ts'
 import { parseData } from './data-parser/data-parser.ts'
 import { useGetCurrencyList } from './CurrencyList/useGetCurrencyList/useGetCurrencyList.ts'
 import { Currency } from './Currency/Currency.tsx'
+import { ConversionToolSkeleton } from './ConversionToolSkeleton.tsx'
 
 export const ConversionTool = () => {
   const [[from, to], setSelectedCurrencies] = useState(defaultCurrencies)
@@ -23,6 +24,10 @@ export const ConversionTool = () => {
     },
     error: conversionError,
   } = useConvert(from, to, amount)
+
+  if (isCurrencyListLoading) {
+    return <ConversionToolSkeleton />
+  }
 
   if (currencyListError || conversionError) {
     return <CurrencyErrorComponent />
