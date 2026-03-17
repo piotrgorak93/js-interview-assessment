@@ -1,6 +1,6 @@
 import { Select } from 'antd'
-import type { CurrencyDTO } from '../../model/currency.ts'
 import styles from './CurrencyList.module.css'
+import type { CurrencyDTO } from '../../../model/currency.ts'
 
 type CurrencyList = {
   currencyList: CurrencyDTO[]

@@ -27,7 +27,7 @@ vi.mock('./useConvert/useConvert.ts', () => ({
   })),
 }))
 
-describe('Conversion Tool', () => {
+describe('ConversionTool component', () => {
   it('should call for conversion when currency FROM is changed', async () => {
     const { getByRole } = await render(<ConversionTool />)
     const [fromCurrencyInput] = getByRole('combobox').elements()
