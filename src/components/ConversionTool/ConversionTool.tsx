@@ -1,6 +1,6 @@
 import { CurrencyErrorComponent } from '../CurrencyErrorComponent.tsx'
 import { Flex } from 'antd'
-import { defaultCurrencies } from './constants.ts'
+import { defaultAmount, defaultCurrencies } from './constants.ts'
 import { useState } from 'react'
 import { useConvert } from './useConvert/useConvert.ts'
 import { parseData } from './data-parser/data-parser.ts'
@@ -10,7 +10,7 @@ import { ConversionToolSkeleton } from './ConversionToolSkeleton.tsx'
 
 export const ConversionTool = () => {
   const [[from, to], setSelectedCurrencies] = useState(defaultCurrencies)
-  const [amount, setAmount] = useState(1)
+  const [amount, setAmount] = useState(defaultAmount)
   const {
     data: currencyList = [],
     error: currencyListError,
@@ -19,7 +19,7 @@ export const ConversionTool = () => {
 
   const {
     data: conversion = {
-      amount: 1,
+      amount: defaultAmount,
       value: 0,
     },
     error: conversionError,
