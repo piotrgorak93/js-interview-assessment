@@ -11,7 +11,8 @@ const fetcher = async (url: string) => {
   return await response.json().then(({ response }) => response)
 }
 
-const apiClient = (url: string) => fetcher(url)
+const apiClient = <T, U = T>(url: string, onFetch?: (data: T) => U) =>
+  fetcher(url).then(onFetch)
 
-export const useApiClient = <T>(url: string) =>
-  useSWR<T>(url, apiClient, swrConfig)
+export const useApiClient = <T, U = T>(url: string, onFetch?: (data: T) => U) =>
+  useSWR<U>(url, () => apiClient(url, onFetch), swrConfig)
