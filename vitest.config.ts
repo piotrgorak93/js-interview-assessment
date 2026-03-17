@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react()],
   test: {
     browser: {
-      provider: playwright({}),
+      provider: playwright(),
       screenshotFailures: false,
       enabled: true,
       instances: [{ browser: 'chromium' }],

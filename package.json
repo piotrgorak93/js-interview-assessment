@@ -15,11 +15,11 @@
     "preview": "vite preview",
     "prepare": "husky",
     "format": "prettier . --write",
-    "test": "vitest",
-    "test:ci": "vitest --browser.headless",
-    "coverage": "vitest run --coverage",
-    "coverage:ci": "vitest run --coverage --browser.headless",
-    "test:browser": "vitest --config=vitest.browser.config.ts"
+    "test": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 vitest",
+    "test:ci": "yarn test -- --browser.headless",
+    "test:coverage": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 vitest run --coverage",
+    "test:coverage:ci": "yarn test:coverage -- --browser.headless",
+    "postinstall": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 playwright install chromium"
   },
   "dependencies": {
     "antd": "^6.3.3",
@@ -36,6 +36,7 @@
     "@vitest/browser-playwright": "^4.1.0",
     "@vitest/browser-preview": "^4.1.0",
     "@vitest/coverage-v8": "4.1.0",
+    "cross-env": "^10.1.0",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
