@@ -29,6 +29,8 @@ export const Currency = ({
         onChange={onAmountChange}
         disabled={disabled}
         value={amount}
+        precision={2}
+        step={0.01}
       />
     </Col>
     <Col span={12}>
