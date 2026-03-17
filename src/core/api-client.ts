@@ -4,16 +4,15 @@ import {
   type RequestParams,
 } from './query-params/query-params.ts'
 import { swrConfig } from './swr.ts'
+import { appConfig } from './app-config.ts'
 
 const fetcher = async (url: string, params?: RequestParams) => {
-  const apiURL = import.meta.env.VITE_API_URL
-  const apiKey = import.meta.env.VITE_API_KEY
-
   const newParams = new URLSearchParams(prepareQueryParams(params))
-  newParams.set('api_key', apiKey)
-
-  const response = await fetch(`${apiURL}${url}?${newParams}`, {
+  const response = await fetch(`${appConfig.apiURL}${url}?${newParams}`, {
     method: 'GET',
+    headers: {
+      Authorization: `Bearer ${appConfig.apiKey}`,
+    },
   })
   return await response.json().then(({ response }) => response)
 }

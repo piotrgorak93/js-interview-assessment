@@ -1,5 +1,7 @@
+import { appConfig } from '../../core/app-config.ts'
+
 export const defaultCurrencies: [string, string] = [
-  import.meta.env.VITE_DEFAULT_CURRENCY_FROM,
-  import.meta.env.VITE_DEFAULT_CURRENCY_TO,
+  appConfig.currencyFrom,
+  appConfig.currencyTo,
 ]
 export const defaultAmount = 1
