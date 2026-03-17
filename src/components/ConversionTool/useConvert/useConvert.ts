@@ -1,6 +1,9 @@
-import { useApiClient } from '../core/api-client.ts'
-import type { CurrencyConversionDTO, CurrencyDTO } from '../model/currency.ts'
-import { Api } from '../core/model/urls.ts'
+import { useApiClient } from '../../../core/api-client.ts'
+import type {
+  CurrencyConversionDTO,
+  CurrencyDTO,
+} from '../../../model/currency.ts'
+import { Api } from '../../../core/model/urls.ts'
 
 export const useConvert = (
   from: CurrencyDTO['short_code'],

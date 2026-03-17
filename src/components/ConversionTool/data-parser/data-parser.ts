@@ -1,4 +1,4 @@
-import type { CurrencyDTO } from '../model/currency.ts'
+import type { CurrencyDTO } from '../../../model/currency.ts'
 
 export const parseData = (data: CurrencyDTO[]) => {
   const parsedData = [...data]
