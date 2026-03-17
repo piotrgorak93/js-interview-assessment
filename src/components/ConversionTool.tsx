@@ -10,8 +10,11 @@ import { useConvert } from './useConvert.ts'
 export const ConversionTool = () => {
   const [[from, to], setSelectedCurrencies] = useState(defaultCurrencies)
   const [amount, setAmount] = useState(1)
-  const { data: currencyList = [], error: currencyListError } =
-    useGetCurrencyList(parseData)
+  const {
+    data: currencyList = [],
+    error: currencyListError,
+    isLoading: isCurrencyListLoading,
+  } = useGetCurrencyList(parseData)
   const {
     data: conversion = {
       amount: 1,
@@ -35,7 +38,7 @@ export const ConversionTool = () => {
       <Currency
         currencyList={currencyList}
         selectedCurrency={from}
-        disabled={false}
+        disabled={isCurrencyListLoading}
         onCurrencyChange={(selectedCurrency) => {
           setSelectedCurrencies(([from, to]) => {
             if (to === selectedCurrency) {
