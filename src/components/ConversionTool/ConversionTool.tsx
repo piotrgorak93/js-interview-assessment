@@ -54,7 +54,7 @@ export const ConversionTool = () => {
           })
         }}
         onAmountChange={onAmountChange}
-        amount={conversion.amount}
+        amount={amount}
         min={1}
       />
       <Currency
