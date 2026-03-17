@@ -1,5 +1,8 @@
 import useSWR from 'swr'
-import { prepareQueryParams, type RequestParams } from './query-params.ts'
+import {
+  prepareQueryParams,
+  type RequestParams,
+} from './query-params/query-params.ts'
 import { swrConfig } from './swr.ts'
 
 const fetcher = async (url: string, params?: RequestParams) => {

@@ -1,3 +1,8 @@
+import { Alert } from 'antd'
+
 export const GenericErrorComponent = () => (
-  <div>An error occurred, please refresh the page and try again.</div>
+  <Alert
+    title="An error occurred, please refresh the page and try again."
+    type="error"
+  />
 )

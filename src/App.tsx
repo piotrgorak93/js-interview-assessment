@@ -1,4 +1,4 @@
-import { ConversionTool } from './components/ConversionTool.tsx'
+import { ConversionTool } from './components/ConversionTool/ConversionTool.tsx'
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary.tsx'
 import { CurrencyErrorComponent } from './components/CurrencyErrorComponent.tsx'
 import { Flex } from 'antd'

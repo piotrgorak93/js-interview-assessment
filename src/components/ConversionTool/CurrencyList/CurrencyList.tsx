@@ -1,6 +1,6 @@
 import { Select } from 'antd'
-import type { CurrencyDTO } from '../../model/currency.ts'
 import styles from './CurrencyList.module.css'
+import type { CurrencyDTO } from '../../../model/currency.ts'
 
 type CurrencyList = {
   currencyList: CurrencyDTO[]
@@ -14,12 +14,15 @@ export const CurrencyList = ({
 }: CurrencyList) => (
   <Select
     value={value}
+    showSearch={{ optionFilterProp: 'label' }}
     options={currencyList.map(({ name, short_code }) => ({
       value: short_code,
       label: name,
       className: styles.select,
     }))}
-    onChange={onChange}
+    onChange={(value) => {
+      onChange(value)
+    }}
     className={styles.select}
   />
 )
