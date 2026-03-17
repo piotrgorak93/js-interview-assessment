@@ -1,7 +1,7 @@
 import { CurrencyList } from '../CurrencyList/CurrencyList.tsx'
-import type { CurrencyDTO } from '../../model/currency.ts'
 import { Col, InputNumber, Row } from 'antd'
 import styles from './Currency.module.css'
+import type { CurrencyDTO } from '../../../model/currency.ts'
 
 type CurrencyProps = {
   currencyList: CurrencyDTO[]

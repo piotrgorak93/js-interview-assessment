@@ -15,7 +15,7 @@ export const ConversionTool = () => {
     error: currencyListError,
     isLoading: isCurrencyListLoading,
   } = useGetCurrencyList(parseData)
-  console.log({ currencyList })
+
   const {
     data: conversion = {
       amount: 1,
