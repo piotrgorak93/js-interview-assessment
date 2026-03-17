@@ -9,8 +9,14 @@ export default defineConfig({
   test: {
     browser: {
       provider: playwright(),
+      providerOptions: {
+        screenshot: 'off',
+      },
       enabled: true,
       instances: [{ browser: 'chromium' }],
+    },
+    coverage: {
+      include: ['src/**/*.{ts,tsx}'],
     },
   },
 })

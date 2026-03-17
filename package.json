@@ -18,6 +18,7 @@
     "test": "vitest",
     "test:ci": "vitest --browser.headless",
     "coverage": "vitest run --coverage",
+    "coverage:ci": "vitest run --coverage --browser.headless",
     "test:browser": "vitest --config=vitest.browser.config.ts"
   },
   "dependencies": {
