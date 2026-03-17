@@ -5,19 +5,37 @@ import styles from './Currency.module.css'
 
 type CurrencyProps = {
   currencyList: CurrencyDTO[]
-  value: CurrencyDTO['short_code']
-  onChange: (selectedCurrency: CurrencyDTO['short_code']) => void
+  selectedCurrency: CurrencyDTO['short_code']
+  onCurrencyChange: (selectedCurrency: CurrencyDTO['short_code']) => void
+  onAmountChange: (amount: number | null) => void
+  amount: number
+  min?: number
+  disabled: boolean
 }
-export const Currency = ({ currencyList, value, onChange }: CurrencyProps) => (
+export const Currency = ({
+  currencyList,
+  selectedCurrency,
+  onCurrencyChange,
+  onAmountChange,
+  amount,
+  min,
+  disabled,
+}: CurrencyProps) => (
   <Row gutter={16}>
     <Col span={12}>
-      <InputNumber min={1} className={styles.input} />
+      <InputNumber
+        min={min}
+        className={styles.input}
+        onChange={onAmountChange}
+        disabled={disabled}
+        value={amount}
+      />
     </Col>
     <Col span={12}>
       <CurrencyList
         currencyList={currencyList}
-        value={value}
-        onChange={onChange}
+        value={selectedCurrency}
+        onChange={onCurrencyChange}
       />
     </Col>
   </Row>

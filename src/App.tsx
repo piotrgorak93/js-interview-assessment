@@ -1,7 +1,6 @@
 import { ConversionTool } from './components/ConversionTool.tsx'
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary.tsx'
 import { CurrencyErrorComponent } from './components/CurrencyErrorComponent.tsx'
-import { Suspense } from 'react'
 import { Flex } from 'antd'
 
 function App() {
@@ -14,9 +13,7 @@ function App() {
       style={{ minHeight: '100vh' }}
     >
       <ErrorBoundary fallback={<CurrencyErrorComponent />}>
-        <Suspense fallback={'Loading'}>
-          <ConversionTool />
-        </Suspense>
+        <ConversionTool />
       </ErrorBoundary>
     </Flex>
   )
