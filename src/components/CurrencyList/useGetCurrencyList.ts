@@ -4,4 +4,4 @@ import type { CurrencyDTO } from '../../model/currency.ts'
 
 export const useGetCurrencyList = (
   mapper: (data: CurrencyDTO[]) => CurrencyDTO[]
-) => useApiClient<CurrencyDTO[]>(Api.CURRENCIES, mapper)
+) => useApiClient<CurrencyDTO[]>(Api.CURRENCIES, { onFetch: mapper })
