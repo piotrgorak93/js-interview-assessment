@@ -1,11 +1,11 @@
-import { Currency } from '../Currency/Currency.tsx'
-import { useGetCurrencyList } from '../CurrencyList/useGetCurrencyList/useGetCurrencyList.ts'
 import { CurrencyErrorComponent } from '../CurrencyErrorComponent.tsx'
 import { Flex } from 'antd'
 import { defaultCurrencies } from './constants.ts'
 import { useState } from 'react'
 import { useConvert } from './useConvert/useConvert.ts'
 import { parseData } from './data-parser/data-parser.ts'
+import { useGetCurrencyList } from './CurrencyList/useGetCurrencyList/useGetCurrencyList.ts'
+import { Currency } from './Currency/Currency.tsx'
 
 export const ConversionTool = () => {
   const [[from, to], setSelectedCurrencies] = useState(defaultCurrencies)
@@ -15,6 +15,7 @@ export const ConversionTool = () => {
     error: currencyListError,
     isLoading: isCurrencyListLoading,
   } = useGetCurrencyList(parseData)
+  console.log({ currencyList })
   const {
     data: conversion = {
       amount: 1,

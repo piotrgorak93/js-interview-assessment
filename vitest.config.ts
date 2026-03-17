@@ -8,15 +8,14 @@ export default defineConfig({
   plugins: [react()],
   test: {
     browser: {
-      provider: playwright(),
-      providerOptions: {
-        screenshot: 'off',
-      },
+      provider: playwright({}),
+      screenshotFailures: false,
       enabled: true,
       instances: [{ browser: 'chromium' }],
     },
     coverage: {
       include: ['src/**/*.{ts,tsx}'],
+      exclude: ['src/main.tsx'],
     },
   },
 })
