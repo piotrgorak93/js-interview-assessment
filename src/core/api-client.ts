@@ -24,10 +24,9 @@ const apiClient = <T, U = T>(
 export const useApiClient = <T>(
   url: string,
   params?: { onFetch?: (data: T) => T; params?: RequestParams }
-) => {
-  return useSWR<T>(
+) =>
+  useSWR<T>(
     [url, params?.params],
     () => apiClient(url, params?.params, params?.onFetch),
     swrConfig
   )
-}
