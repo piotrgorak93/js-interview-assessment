@@ -40,7 +40,7 @@ export const ConversionTool = () => {
   }
 
   return (
-    <Flex gap="medium" vertical style={{ width: '20%' }}>
+    <Flex gap="medium" vertical>
       <Currency
         currencyList={currencyList}
         selectedCurrency={from}
