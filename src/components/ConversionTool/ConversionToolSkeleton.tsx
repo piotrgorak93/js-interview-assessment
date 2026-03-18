@@ -10,7 +10,6 @@ export const ConversionToolSkeleton = () => (
         <Skeleton.Input active />
       </Col>
     </Row>
-
     <Row gutter={16}>
       <Col span={12}>
         <Skeleton.Input active />
