@@ -8,6 +8,7 @@ This project is primarily configured for **Yarn**, but **npm** also works.
 
 - Node.js 24.14.0 or higher
 - Yarn v1.22.22 or higher
+- Docker (optional, for containerized setup)
 
 ## Environment Variables
 
@@ -39,6 +40,22 @@ cd js-interview-assessment
 
 ```shell
 yarn install  (or npm install)
+```
+
+## Docker Setup
+
+This project can be run inside a Docker container to simplify environment management.
+
+1. Build the Docker image:
+
+```shell
+docker build -t js-interview-assessment .
+```
+
+2. Run the container with environment variables:
+
+```shell
+docker run --env-file .env -p 5173:5173 js-interview-assessment
 ```
 
 ## Available Scripts
