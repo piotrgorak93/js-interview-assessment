@@ -16,9 +16,9 @@
     "prepare": "husky",
     "format": "prettier . --write",
     "test": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 vitest",
-    "test:ci": "yarn test -- --browser.headless",
-    "test:coverage": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 vitest run --coverage",
-    "test:coverage:ci": "yarn test:coverage -- --browser.headless",
+    "test:ci": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 vitest --browser.headless",
+    "test:coverage": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 vitest --coverage",
+    "test:coverage:ci": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 vitest run --coverage --browser.headless",
     "postinstall": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 playwright install chromium"
   },
   "dependencies": {
