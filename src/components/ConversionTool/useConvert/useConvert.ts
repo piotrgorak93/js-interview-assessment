@@ -1,4 +1,4 @@
-import { useApiClient } from '../../../core/api-client.ts'
+import { useApiClient } from '../../../core/api-client/api-client.ts'
 import type {
   CurrencyConversionDTO,
   CurrencyDTO,

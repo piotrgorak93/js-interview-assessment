@@ -2,9 +2,9 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderHook } from 'vitest-browser-react'
 import { useConvert } from './useConvert.ts'
 
-import * as apiClientModule from '../../../core/api-client.ts'
+import * as apiClientModule from '../../../core/api-client/api-client.ts'
 
-vi.mock('../../../core/api-client.ts', () => ({
+vi.mock('../../../core/api-client/api-client.ts', () => ({
   useApiClient: vi.fn(),
 }))
 
