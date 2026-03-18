@@ -6,8 +6,8 @@ import {
 import { swrConfig } from './swr.ts'
 import { appConfig } from '../app-config.ts'
 
-const fetcher = async (url: string, params?: RequestParams) => {
-  const newParams = new URLSearchParams(prepareQueryParams(params))
+const fetcher = async (url: string, requestParams?: RequestParams) => {
+  const newParams = new URLSearchParams(prepareQueryParams(requestParams))
   const queryParams = newParams.size ? `?${newParams}` : ''
   const response = await fetch(`${appConfig.apiURL}${url}${queryParams}`, {
     method: 'GET',
@@ -26,10 +26,10 @@ const apiClient = <T, U = T>(
 
 export const useApiClient = <T>(
   url: string,
-  params?: { onFetch?: (data: T) => T; params?: RequestParams }
+  params?: { onFetch?: (data: T) => T; requestParams?: RequestParams }
 ) =>
   useSWR<T>(
-    [url, params?.params],
-    () => apiClient(url, params?.params, params?.onFetch),
+    [url, params?.requestParams],
+    () => apiClient(url, params?.requestParams, params?.onFetch),
     swrConfig
   )

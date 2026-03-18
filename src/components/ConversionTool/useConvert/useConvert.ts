@@ -11,7 +11,7 @@ export const useConvert = (
   amount: number
 ) =>
   useApiClient<CurrencyConversionDTO>(Api.CONVERT, {
-    params: {
+    requestParams: {
       from,
       to,
       amount,
