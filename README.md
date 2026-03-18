@@ -117,7 +117,7 @@ npm equivalents:
 
 ## Testing Notes
 
-We use Vitest with vitest-browser-react for React hooks testing.
+Use Vitest with vitest-browser-react for React hooks testing.
 
 - Tests are located alongside source files.
 - Coverage is collected via @vitest/coverage-v8.
