@@ -3,7 +3,7 @@ import {
   prepareQueryParams,
   type RequestParams,
 } from '../query-params/query-params.ts'
-import { swrConfig } from '../swr.ts'
+import { swrConfig } from './swr.ts'
 import { appConfig } from '../app-config.ts'
 
 const fetcher = async (url: string, params?: RequestParams) => {
