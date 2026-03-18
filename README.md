@@ -81,11 +81,11 @@ Serves the production build locally for testing.
 
 ### Linting & Formatting
 
-`yarn lint` — Run ESLint
+`yarn lint` - Run ESLint
 
-`yarn lint:fix` — Run ESLint with auto-fix
+`yarn lint:fix` - Run ESLint with auto-fix
 
-`yarn format` — Run Prettier
+`yarn format` - Run Prettier
 
 npm equivalents:
 
@@ -97,13 +97,13 @@ npm equivalents:
 
 ### Testing
 
-`yarn test` — Run tests in browser preview mode
+`yarn test` - Run tests in browser preview mode
 
-`yarn test:ci` — Run tests headless
+`yarn test:ci` - Run tests headless
 
-`yarn test:coverage ` — Run tests with coverage
+`yarn test:coverage ` - Run tests with coverage
 
-`yarn test:coverage:ci` — Run coverage headless
+`yarn test:coverage:ci` - Run coverage headless
 
 npm equivalents:
 
@@ -121,16 +121,6 @@ Use Vitest with vitest-browser-react for React hooks testing.
 
 - Tests are located alongside source files.
 - Coverage is collected via @vitest/coverage-v8.
-- Example of testing `useApiClient`:
-
-```ts
-import { renderHook } from 'vitest-browser-react'
-import { useApiClient } from './api-client'
-
-await renderHook(() =>
-  useApiClient('/url-with-params', { params: { a: 1, b: 2 } })
-)
-```
 
 ## Linting & Formatting
 
