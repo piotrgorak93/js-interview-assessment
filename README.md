@@ -49,13 +49,18 @@ This project can be run inside a Docker container to simplify environment manage
 1. Build the Docker image:
 
 ```shell
-docker build -t js-interview-assessment .
+docker build \
+  --build-arg VITE_API_URL=https://api.currencybeacon.com/v1 \
+  --build-arg VITE_API_KEY=your_api_key_here \
+  --build-arg VITE_DEFAULT_CURRENCY_FROM=USD \
+  --build-arg VITE_DEFAULT_CURRENCY_TO=PLN \
+  -t js-interview-assessment .
 ```
 
 2. Run the container with environment variables:
 
 ```shell
-docker run --env-file .env -p 5173:5173 js-interview-assessment
+docker run -p 5173:80 js-interview-assessment
 ```
 
 ## Available Scripts
