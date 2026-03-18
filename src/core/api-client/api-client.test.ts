@@ -1,21 +1,33 @@
-import { describe, expect, it, vi } from 'vitest'
+import { afterAll, describe, expect, it, vi } from 'vitest'
 import { renderHook } from 'vitest-browser-react'
 import { useApiClient } from './api-client.ts'
 
 const mock = vi.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve({ response: [] }),
-  })
+  Promise.resolve(
+    new Response(JSON.stringify({ response: [] }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  )
 )
 vi.stubGlobal('fetch', mock)
 
 describe('useApiClient hook', () => {
   it('should call fetch with parameters', async () => {
     await renderHook(() =>
-      useApiClient('/url-with-params', { params: { a: 1, b: 2 } })
+      useApiClient('/url-with-params', { requestParams: { a: 1, b: 2 } })
     )
     expect(mock).toHaveBeenCalledWith(
       expect.stringMatching(/url-with-params\?a=1&b=2$/),
+      expect.anything()
+    )
+  })
+  it('should call fetch with empty parameters', async () => {
+    await renderHook(() =>
+      useApiClient('/url-with-params', { requestParams: {} })
+    )
+    expect(mock).toHaveBeenCalledWith(
+      expect.stringMatching(/url-with-params$/),
       expect.anything()
     )
   })
@@ -26,4 +38,8 @@ describe('useApiClient hook', () => {
       expect.anything()
     )
   })
+})
+
+afterAll(() => {
+  mock.mockReset()
 })

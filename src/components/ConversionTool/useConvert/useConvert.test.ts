@@ -12,7 +12,7 @@ describe('useConvert hook', () => {
   it('should call API', async () => {
     await renderHook(() => useConvert('PLN', 'USD', 1000))
     expect(apiClientModule.useApiClient).toHaveBeenCalledWith('/convert', {
-      params: {
+      requestParams: {
         amount: 1000,
         from: 'PLN',
         to: 'USD',
