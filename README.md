@@ -38,9 +38,7 @@ cd js-interview-assessment
 
 2. Install dependencies:
 
-```shell
-yarn install  (or npm install)
-```
+`yarn install` (or `npm install`)
 
 ## Docker Setup
 
