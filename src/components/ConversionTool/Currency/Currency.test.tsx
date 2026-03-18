@@ -32,7 +32,7 @@ describe('Currency component', () => {
         ]}
       />
     )
-    await userEvent.type(getByRole('spinbutton'), '2')
+    await userEvent.fill(getByRole('spinbutton'), '102')
 
     expect(onAmountChange).toHaveBeenCalledWith(102)
   })
